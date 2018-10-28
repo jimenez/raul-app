@@ -5,20 +5,22 @@ import MessageArea from './MessageArea';
 import './App.css';
 
 let data = {
-  data: [
-    {id: 1, text: 'Task #1', start_date: '15-04-2017', duration: 3, progress: 0.6},
-    {id: 2, text: 'Task #2', start_date: '18-04-2017', duration: 3, progress: 0.4}
-  ],
-  links: [
-    {id: 1, source: 1, target: 2, type: '0'}
-  ]
-};
+        "data": [
+            {"id": 1, "text": "Clopidogrel", "start_date": "02-02-2018 00:00", "duration": 365, "open": true},
+            {"id": 2, "text": "ASA", "start_date": "02-02-2018 00:00", "type": "project", "open": false},
+            {"id": 2.1, "text": "ASA", "start_date": "02-02-2018 00:00", "duration": 30, "parent": "2", "open": true},
+            {"id": 2.2, "text": "ASA", "start_date": "02-04-2018 00:00", "duration": 10, "parent": "2", "open": true},
+            {"id": 2.3, "text": "ASA", "start_date": "02-06-2018 00:00", "duration": 30, "parent": "2", "open": true},
+            {"id": 2.4, "text": "ASA", "start_date": "02-08-2018 00:00", "duration": 10, "parent": "2", "open": true},
+            {"id": 3, "text": "Rivaroxaban", "start_date": "02-02-2018 00:00", "duration": 365,  "open": true},
+        ]
+    };
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentZoom: 'Days',
+      currentZoom: 'Months',
       messages: []
     };
 

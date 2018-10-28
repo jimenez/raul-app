@@ -13,7 +13,7 @@ export default class Toolbar extends Component {
   }
 
   render() {
-    let zoomRadios = ['Hours', 'Days', 'Months'].map((value) => {
+    let zoomRadios = ['Days', 'Months', 'Years'].map((value) => {
       let isActive = this.props.zoom === value;
       return (
         <label key={value} className={`radio-label ${isActive ? 'radio-label-active': ''}`}>

@@ -58,3 +58,27 @@
   content: "\003e";
   padding-right: 10px;
 }
+
+
+.child_preview {
+  box-sizing: border-box;
+  margin-top: 2px;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+}
+
+.gantt_task_line.task-collapsed {
+  height: 4px;
+  opacity: 0;
+}
+
+.gantt_task_line.gantt_project.task-collapsed .gantt_task_content {
+  display: none;
+}
+
+.gantt_row.task-parent {
+  font-weight: bold;
+}

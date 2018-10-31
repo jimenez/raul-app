@@ -49,51 +49,8 @@ export default class Gantt extends Component {
     gantt.render();
   }
 
-  initGanttEvents() {
-    if(gantt.ganttEventsInitialized){
-      return;
-    }
-    gantt.ganttEventsInitialized = true;
-
-    gantt.attachEvent('onAfterTaskAdd', (id, task) => {
-      if(this.props.onTaskUpdated) {
-        this.props.onTaskUpdated(id, 'inserted', task);
-      }
-    });
-
-    gantt.attachEvent('onAfterTaskUpdate', (id, task) => {
-      if(this.props.onTaskUpdated) {
-        this.props.onTaskUpdated(id, 'updated', task);
-      }
-    });
-
-    gantt.attachEvent('onAfterTaskDelete', (id) => {
-      if(this.props.onTaskUpdated) {
-        this.props.onTaskUpdated(id, 'deleted');
-      }
-    });
-
-    gantt.attachEvent('onAfterLinkAdd', (id, link) => {
-      if(this.props.onLinkUpdated) {
-        this.props.onLinkUpdated(id, 'inserted', link);
-      }
-    });
-
-    gantt.attachEvent('onAfterLinkUpdate', (id, link) => {
-      if(this.props.onLinkUpdated) {
-        this.props.onLinkUpdated(id, 'updated', link);
-      }
-    });
-
-    gantt.attachEvent('onAfterLinkDelete', (id, link) => {
-      if(this.props.onLinkUpdated) {
-        this.props.onLinkUpdated(id, 'deleted');
-      }
-    });
-  }
-  
     componentDidMount() {
-	fetch('http://isabelandvictor.us:7777/meds', {
+	fetch('http://localhost:7778/patient/1', {
 	    method: 'GET'
 	})
 	    .then((response) => {
@@ -110,7 +67,7 @@ export default class Gantt extends Component {
 	    });
 
 
-    this.initGanttEvents();
+
     //default columns definition
     gantt.config.columns = [
 	{name:"text",       label:"Medications", align:"left", tree:false },

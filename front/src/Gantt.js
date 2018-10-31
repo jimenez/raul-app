@@ -4,7 +4,10 @@ import 'dhtmlx-gantt';
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
 
 export default class Gantt extends Component {
-  setZoom(value){
+    setZoom(value){
+	this.state = {
+	    data : ''
+	}
     switch (value){
       case 'Days':
         gantt.config.min_column_width = 70;
@@ -89,7 +92,24 @@ export default class Gantt extends Component {
     });
   }
   
-  componentDidMount() {
+    componentDidMount() {
+	fetch('http://isabelandvictor.us:7777/meds', {
+	    method: 'GET'
+	})
+	    .then((response) => {
+		console.log(response);
+		return response.json();
+	    })
+	    .then((data) => {
+		console.log(data);
+		this.setState({data:data})
+		gantt.parse(data);
+	    })
+	    .catch((error) => {
+		console.error(error);
+	    });
+
+
     this.initGanttEvents();
     //default columns definition
     gantt.config.columns = [
@@ -152,8 +172,7 @@ export default class Gantt extends Component {
 	  }
 	  return false;
       });
-      gantt.parse(this.props.tasks);
-  }
+    }
 
   render() {
     this.setZoom(this.props.zoom);

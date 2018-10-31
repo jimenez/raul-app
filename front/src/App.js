@@ -8,12 +8,6 @@ import Form from './Form';
 import View from './View';
 import './App.css';
 
-var db = require('./db.js')
-
-db.createDb()
-
-
-
 let data = {
         "data": [
             {"id": 1, "text": "Clopidogrel", "start_date": "02-02-2018 00:00", "duration": 365, "open": true},

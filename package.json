@@ -6,7 +6,9 @@
     "dhtmlx-gantt": "^4.1.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router": "^4.3.1"
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "sqlite3": "^4.0.3"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

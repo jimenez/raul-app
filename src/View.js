@@ -1,11 +1,5 @@
-import {
-    HashRouter as Router, Route, Link
-} from 'react-router-dom';
-
-
 import React, { Component } from 'react';
 import Gantt from './Gantt';
-import Form from './Form';
 import Toolbar from './Toolbar';
 import MessageArea from './MessageArea';
 import './App.css';

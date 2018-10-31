@@ -4,12 +4,15 @@ import {
 
 
 import React, { Component } from 'react';
-import Gantt from './Gantt';
 import Form from './Form';
 import View from './View';
-import Toolbar from './Toolbar';
-import MessageArea from './MessageArea';
 import './App.css';
+
+var db = require('./db.js')
+
+db.createDb()
+
+
 
 let data = {
         "data": [
@@ -23,11 +26,8 @@ let data = {
         ]
     };
 
-class App extends Component {
-  constructor(props) {
-    super(props);
 
-  }
+class App extends Component {
   
   render() {
       return (

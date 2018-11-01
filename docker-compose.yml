@@ -1,0 +1,24 @@
+version: '3'
+services:
+  raul-app:
+    container_name: raul-app
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    volumes:
+      - './front:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+  raul-backend:
+    container_name: raul-backend
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    volumes:
+      - './back:/go/src/app/'
+    ports:
+      - '7778:7778'

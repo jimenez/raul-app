@@ -50,7 +50,7 @@ export default class Gantt extends Component {
   }
 
     componentDidMount() {
-	fetch('http://localhost:7778/patient/1', {
+	fetch('http://'+window.location.hostname+':7778/patient/1', {
 	    method: 'GET'
 	})
 	    .then((response) => {
@@ -74,6 +74,7 @@ export default class Gantt extends Component {
 	{name:"start_date", label:"Start time", align:"center" },
 	{name:"duration",   label:"Duration",   align:"center" }
     ];
+    gantt.config.readonly = true;
     gantt.init(this.ganttContainer);
 
     function createBox(sizes, class_name) {
